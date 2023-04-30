@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+	/* colors */
+	--primaryColor: #fff;
+	--secondaryColor: #fd1afd;
+	--cardShadowColor: #f25ff2;
+	--spanTxtColor: #fd1afd;
+	--btnHoverColor: #fd1afd;
+	--btnTxtColor: #fd1afd;
+	--btnHoverTxtColor: #fff;
+	/* texts */
+	--fs-card-header: 32px;
+	--fs-card-header-des: 16px;
+	--fs-card-body-header: 18px;
+	--fs-card-body-header-des: 24px;
+	--fs-card-btn: 16px;
+	--fw-card-btn: 500;
+}
+
+*,
+::before,
+::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Poppins', sans-serif;
+	min-height: 100vh;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--primaryColor);
+}
+
+/* card */
+.card {
+	height: 500px;
+	width: 450px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	position: relative;
+	border-radius: 20px;
+	overflow: hidden;
+	box-shadow: 1px 1px 15px 1px black;
+}
+
+.card-bg {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	animation: card-bg 1s ease forwards;
+	background: var(--primaryColor);
+	background: linear-gradient(0deg, var(--primaryColor) 20%, var(--secondaryColor) 100%);
+	z-index: 1;
+	border-radius: 20px;
+}
+
+.card-header,
+.card-img,
+.card-body,
+.card-btn {
+	padding: 10px 20px;
+	opacity: 1;
+	animation: card-loader 1s ease forwards;
+	animation-delay: 0s;
+	z-index: 10;
+}
+
+.card-img {
+	height: 35%;
+	width: 100%;
+	display: inline-flex;
+	justify-content: center;
+}
+
+.profile-pic {
+	height: 100%;
+	width: auto;
+	border-radius: 50%;
+}
+
+.card-header {
+	height: 10%;
+	width: 100%;
+	text-align: center;
+}
+
+.card-header .profile-name {
+	font-size: var(--fs-card-header);
+}
+
+.card-header .profile-description {
+	font-size: var(--fs-card-header-des);
+}
+
+/* card-body */
+.card-body {
+	width: 100%;
+	display: inline-flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.card-body .like-section h3,
+.card-body .follow-section h3 {
+	font-size: var(--fs-card-body-header);
+}
+
+.card-body .like-section h2,
+.card-body .follow-section h2 {
+	font-size: var(--fs-card-body-header-des);
+}
+
+.card-body span {
+	color: var(--secondaryColor);
+}
+
+.card-body .divider {
+	height: 80%;
+	width: 5px;
+	background-color: var(--secondaryColor);
+	border-radius: 5px;
+}
+
+.card-btn {
+	height: 15%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	border-radius: 20px;
+}
+
+.icon-group {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	position: relative;
+	cursor: pointer;
+	color: var(--btnTxtColor);
+}
+
+.icon {
+	font-size: 2rem;
+}
+
+.icon-txt {
+	font-weight: bold;
+}
+
+.icon, .icon-txt {
+	z-index: 10;
+}
+
+.icon-bg {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	border-radius: 20px;
+	clip-path: circle(50% at -50% 50%);
+	z-index: 1;
+	transition: clip-path 2s ease forwards;
+	background-color: var(--secondaryColor);
+}
+
+.hidden {
+	display: none;
+}
+.show {
+	display: block;
+}
+
+@keyframes card-bg {
+	0% {
+		clip-path: circle(0% at 50% 0%);
+	}
+
+	100% {
+		clip-path: circle(55% at 50% 0);
+	}
+}
+
+@keyframes card-loader {
+	0% {
+		transform: translateY(-100%);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0%);
+	}
+}
